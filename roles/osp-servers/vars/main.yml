@@ -1,39 +1,71 @@
 ---
-# vars file for osp.servers
+# Additions to this file are commented inline
 osp_servers:
-  frontend:
-    name: frontend
+  - name: frontend
     state: present
     image: rhel-guest
     key_name: ansible_ssh
     flavor: m1.medium
     security_group: frontend
-    meta:
-      - { group: frontends, deployment_name: QA}
-  app1:
-    name: app1
+# nic for internal network
+    nics:
+      - net-name: int_network
+    meta: "group=frontends,deployment_name=QA"
+#
+# Add "userdata" to inject osp keys
+#
+    userdata: |
+      #!/bin/bash 
+      curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub 
+      cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
+  - name: app1
     state: present
     image: rhel-guest
     key_name: ansible_ssh
     flavor: m1.medium
     security_group: apps
-    meta:
-      - { group: apps, deployment_name: QA}
-  app2:
-    name: app2
+# nic for internal network
+    nics:
+      - net-name: int_network
+    meta: "group=apps,deployment_name=QA"
+#
+# Add "userdata" to inject osp keys
+#
+    userdata: |
+      #!/bin/bash 
+      curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub 
+      cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
+  - name: app2
     state: present
     image: rhel-guest
     key_name: ansible_ssh
     flavor: m1.medium
     security_group: apps
-    meta:
-      - { group: apps, deployment_name: QA}
-  db:
-    name: db
+# nic for internal network
+    nics:
+      - net-name: int_network
+    meta: "group=apps,deployment_name=QA"
+#
+# Add "userdata" to inject osp keys
+#
+    userdata: |
+      #!/bin/bash 
+      curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub 
+      cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
+  - name: db
     state: present
     image: rhel-guest
     key_name: ansible_ssh
     flavor: m1.medium
     security_group: db
-    meta:
-      - { group: appdbs, deployment_name: QA}
+    nics:
+      - net-name: int_network
+# nic for internal network
+    meta: "group=appdbs,deployment_name=QA"
+#
+# Add "userdata" to inject osp keys
+#
+    userdata: |
+      #!/bin/bash 
+      curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub 
+      cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
