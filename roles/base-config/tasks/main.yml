@@ -26,7 +26,5 @@
 # Install a couple user apps
 - name: install 
   yum:
-    name: 'vim'
-    state: latest
-    name: 'tree'
+    name: ['vim', 'tree', 'python-pip']
     state: latest
