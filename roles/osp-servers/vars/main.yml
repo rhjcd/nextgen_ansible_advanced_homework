@@ -1,5 +1,5 @@
 ---
-# Additions to this file are commented inline
+# Additions to this file toadd keys and nics
 osp_servers:
   - name: frontend
     state: present
@@ -7,13 +7,9 @@ osp_servers:
     key_name: ansible_ssh
     flavor: m1.medium
     security_group: frontend
-# nic for internal network
     nics:
       - net-name: int_network
     meta: "group=frontends,deployment_name=QA"
-#
-# Add "userdata" to inject osp keys
-#
     userdata: |
       #!/bin/bash 
       curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub 
@@ -24,13 +20,9 @@ osp_servers:
     key_name: ansible_ssh
     flavor: m1.medium
     security_group: apps
-# nic for internal network
     nics:
       - net-name: int_network
     meta: "group=apps,deployment_name=QA"
-#
-# Add "userdata" to inject osp keys
-#
     userdata: |
       #!/bin/bash 
       curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub 
@@ -41,13 +33,9 @@ osp_servers:
     key_name: ansible_ssh
     flavor: m1.medium
     security_group: apps
-# nic for internal network
     nics:
       - net-name: int_network
     meta: "group=apps,deployment_name=QA"
-#
-# Add "userdata" to inject osp keys
-#
     userdata: |
       #!/bin/bash 
       curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub 
@@ -60,11 +48,7 @@ osp_servers:
     security_group: db
     nics:
       - net-name: int_network
-# nic for internal network
     meta: "group=appdbs,deployment_name=QA"
-#
-# Add "userdata" to inject osp keys
-#
     userdata: |
       #!/bin/bash 
       curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub 
