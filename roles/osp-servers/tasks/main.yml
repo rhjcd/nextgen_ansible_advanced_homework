@@ -10,7 +10,6 @@
     security_groups: "{{ item.security_group }}"
     delete_fip: yes
     wait: no
-    #state: "{{ instance_state | default('present') }}"
     nics: "{{ item.nics }}"
     meta: "{{ item.meta }}"
     userdata: "{{ item.userdata }}"
