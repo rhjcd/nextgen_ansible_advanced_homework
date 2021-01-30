@@ -1,6 +1,6 @@
 ---
 - name: Smoke test for QA environment including 3-tier app
-- hosts: workstation
+  hosts: workstation
   gather_facts: false
   tasks:
   - name: Fetch Instance Info
