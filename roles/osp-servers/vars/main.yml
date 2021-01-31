@@ -1,25 +1,29 @@
 ---
-openstack_servers:
- - instance_name: app1
-   image: rhel-guest
+instance_list:
+ - name: app1
+   #image: rhel-guest
    group: apps
-   deployment: QA
+   meta_deployment: QA
+   meta_group: app_servers
    security_group_name: apps
 
- - instance_name: app2
+ - name: app2
    group: apps
-   image: rhel-guest
-   deployment: QA
+   #image: rhel-guest
+   meta_deployment: QA
+   meta_group: app_servers
    security_group_name: apps
 
- - instance_name: db
+ - name: db
    group: appdbs
-   image: rhel-guest
-   deployment: QA
+   #image: rhel-guest
+   meta_deployment: QA
+   meta_group: database_servers 
    security_group_name: db
 
- - instance_name: frontend
+ - name: frontend
    group: frontends
-   image: rhel-guest
-   deployment: QA
+   #image: rhel-guest
+   meta_deployment: QA
+   meta_group: load_balancers 
    security_group_name: frontend
