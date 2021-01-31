@@ -8,7 +8,7 @@
     flavor:           "{{ __instance_list.flavor    | default('m1.medium') }}"
     security_groups:  "{{ __instance_list.security_groups }}"
     delete_fip: yes
-    state:            "{{ instance_state            | default('present') }}"
+    state:            "{{ __instance_state            | default('present') }}"
     wait: no
     nics:
       - net-name:     "{{ __instance_list.net_name  | default('int_network') }}"
