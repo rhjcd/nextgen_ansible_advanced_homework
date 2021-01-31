@@ -4,7 +4,7 @@
     cloud:            "{{ __instance_list.cloud     | default('openstack') }}"
     name:             "{{ __instance_list.name }}"
     image:            "{{ __instance_list.image     | default('rhel-guest') }}"
-    key_name:         "{{ __instance_list.key_name  | default('ansible_ssh_key') }}"
+    key_name:         "{{ __instance_list.key_name  | default('ansible_ssh') }}"
     flavor:           "{{ __instance_list.flavor    | default('m1.medium') }}"
     security_groups:  "{{ __instance_list.security_groups }}"
     delete_fip: yes
