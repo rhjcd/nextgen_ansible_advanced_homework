@@ -1,6 +1,6 @@
 ---
 # Below is a loop to add osp_servers
-- name: add development servers
+- name: add QA servers
   os_server:
     cloud: openstack
     name: "{{ item.name }}"
@@ -15,8 +15,8 @@
     userdata: "{{ item.userdata }}"
   loop: "{{ osp_servers }}"
 
-# Below adds FIPs to dev servers
-- name: add ext fip to dev servers
+# Below adds FIPs to qa servers
+- name: add ext fip to qa servers
   os_floating_ip:
     cloud: openstack
     state: present
