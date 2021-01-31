@@ -1,55 +1,21 @@
 ---
-# Additions to this file toadd keys and nics
-osp_servers:
-  - name: frontend
-    state: present
-    image: rhel-guest
-    key_name: ansible_ssh
-    flavor: m1.medium
-    security_group: frontend
-    nics:
-      - net-name: int_network
-    meta: "group=frontends,deployment_name=QA"
-    userdata: |
-      #!/bin/bash 
-      curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub 
-      cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
-  - name: app1
-    state: present
-    image: rhel-guest
-    key_name: ansible_ssh
-    flavor: m1.medium
-    security_group: apps
-    nics:
-      - net-name: int_network
-    meta: "group=apps,deployment_name=QA"
-    userdata: |
-      #!/bin/bash 
-      curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub 
-      cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
-  - name: app2
-    state: present
-    image: rhel-guest
-    key_name: ansible_ssh
-    flavor: m1.medium
-    security_group: apps
-    nics:
-      - net-name: int_network
-    meta: "group=apps,deployment_name=QA"
-    userdata: |
-      #!/bin/bash 
-      curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub 
-      cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
-  - name: db
-    state: present
-    image: rhel-guest
-    key_name: ansible_ssh
-    flavor: m1.medium
-    security_group: db
-    nics:
-      - net-name: int_network
-    meta: "group=appdbs,deployment_name=QA"
-    userdata: |
-      #!/bin/bash 
-      curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub 
-      cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
+openstack_instances: 
+  - instance_name: app1
+    group: apps
+    deployment: QA
+    security_group_name: apps
+
+  - instance_name: app2
+    group: apps
+    deployment: QA
+    security_group_name: apps
+
+  - instance_name: db
+    group: appdbs
+    deployment: QA
+    security_group_name: db
+
+  - instance_name: frontend
+    group: frontends
+    deployment: QA
+    security_group_name: frontend
