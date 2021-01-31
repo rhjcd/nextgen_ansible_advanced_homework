@@ -6,6 +6,7 @@ instance_list:
    meta_deployment: QA
    meta_group: app_servers
    security_groups: apps
+   instance_state: present
 
  - name: app2
    group: apps
@@ -13,6 +14,7 @@ instance_list:
    meta_deployment: QA
    meta_group: app_servers
    security_groups: apps
+   instance_state: present
 
  - name: db
    group: appdbs
@@ -20,6 +22,7 @@ instance_list:
    meta_deployment: QA
    meta_group: database_servers 
    security_groups: db
+   instance_state: present
 
  - name: frontend
    group: frontends
@@ -27,3 +30,4 @@ instance_list:
    meta_deployment: QA
    meta_group: load_balancers 
    security_groups: frontend
+   instance_state: present
