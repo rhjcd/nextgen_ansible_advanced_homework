@@ -5,25 +5,25 @@ instance_list:
    group: apps
    meta_deployment: QA
    meta_group: app_servers
-   security_group_name: apps
+   security_groups: apps
 
  - name: app2
    group: apps
    #image: rhel-guest
    meta_deployment: QA
    meta_group: app_servers
-   security_group_name: apps
+   security_groups: apps
 
  - name: db
    group: appdbs
    #image: rhel-guest
    meta_deployment: QA
    meta_group: database_servers 
-   security_group_name: db
+   security_groups: db
 
  - name: frontend
    group: frontends
    #image: rhel-guest
    meta_deployment: QA
    meta_group: load_balancers 
-   security_group_name: frontend
+   security_groups: frontend
