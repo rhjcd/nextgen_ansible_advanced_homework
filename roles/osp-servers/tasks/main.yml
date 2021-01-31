@@ -20,7 +20,7 @@
   loop: "{{ openstack_servers }}"
   loop_control:
     loop_var: __server_create
-  async: 900
+  #async: 900
   poll: 0
   register: r_instances
  
