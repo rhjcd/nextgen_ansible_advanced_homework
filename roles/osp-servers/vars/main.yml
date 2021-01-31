@@ -1,6 +1,5 @@
 ---
 instance_list:
-instance_state: present
  - name: app1
    #image: rhel-guest
    group: apps
