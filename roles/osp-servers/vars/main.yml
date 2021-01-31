@@ -1,21 +1,25 @@
 ---
 openstack_instances: 
   - instance_name: app1
+    image: rhel-guest
     group: apps
     deployment: QA
     security_group_name: apps
 
   - instance_name: app2
     group: apps
+    image: rhel-guest
     deployment: QA
     security_group_name: apps
 
   - instance_name: db
     group: appdbs
+    image: rhel-guest
     deployment: QA
     security_group_name: db
 
   - instance_name: frontend
     group: frontends
+    image: rhel-guest
     deployment: QA
     security_group_name: frontend
