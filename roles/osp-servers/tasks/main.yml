@@ -33,7 +33,7 @@
   retries: 900
   loop: "{{ r_instances.results }}"
 
-- when: instance_state == "present"
+#- when: instance_state == "present"
   name: Add floating IP to instance
   os_floating_ip:
     cloud: openstack
