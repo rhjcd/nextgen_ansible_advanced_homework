@@ -8,6 +8,7 @@
   service:
     name: "{{ payload }}"
     enabled: yes
+    state: started
 
 - name: Configure haproxy to load balance app servers
   template:
