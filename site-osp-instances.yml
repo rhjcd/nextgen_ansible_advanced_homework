@@ -13,7 +13,9 @@
    become: false
 
  - hosts: workstation
-   become: yes
+   connection: local
+   become: no
+   gather_facts: true
    roles:
      - osp-servers
 
