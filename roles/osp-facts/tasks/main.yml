@@ -1,8 +1,8 @@
 ---
 # tasks file for osp-facts
  - name: Fetch Instance Info
-   os_server_facts:
-    cloud: oscloud
+   os_server_infro:
+    cloud: openstack
     region_name: regionOne
    register: result
  - name: debug
