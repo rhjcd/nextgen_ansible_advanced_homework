@@ -7,14 +7,14 @@
 - name: Enable {{ payload }} at boot
   service:
     name: "{{ payload }}"
-    enabled: yes
+    enabled: true 
     state: started
 
 - name: Configure haproxy to load balance app servers
   template:
     src: haproxy.cfg.j2
     dest: /etc/haproxy/haproxy.cfg
-    mode: 0644
+   # mode: 0644
   notify: restart {{ payload }}
 
 
