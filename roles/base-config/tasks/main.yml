@@ -8,7 +8,7 @@
     replace: 'Defaults  !requiretty'
     backup: yes
 
-# Create repo dir 
+# Create repo dir
 #- name: Create yum.repo.d dir
 #  file:
 #    path: /etc/yum.repos.d
@@ -22,9 +22,26 @@
     owner: root
     group: root
     mode: '0644'
+# Let's update the kernel
+- name: Kernel update
+  yum:
+    name: 'kernel*'
+    state: latest
 
 # Install a couple user apps
-- name: install 
+- name: install
   yum:
     name: ['vim', 'tree', 'python-pip']
     state: latest
+
+# Task to fix comms between db and app osp servers
+- name: Database vm IP add to hosts file for apps servers
+  lineinfile:
+    path: /etc/hosts
+    insertafter: EOF
+    line: "{{ hostvars['db']['ansible_default_ipv4']['address'] }} appdb1"
+  when: ansible_nodename == 'app1' or ansible_nodename == 'app2'
+
+
+
+

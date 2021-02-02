@@ -27,3 +27,7 @@
     timeout: 200
   loop: "{{ osp_servers }}"
 
+# Needs a wait
+- name: Wait for online verification at 1 minute
+  pause:
+    minutes: 1
