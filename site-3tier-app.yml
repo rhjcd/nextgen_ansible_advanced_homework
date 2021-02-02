@@ -4,16 +4,6 @@
   roles:
   - name: osp-facts
 
-# Setup front-end load balancer tier
-
-- name: setup load-balancer tier
-  hosts: frontends
-  gather_facts: true
-  become: yes
-  roles:
-    - {name: base-config, tags: base-config}
-    - {name: lb-tier, tags: [lbs, haproxy]}
-
 # Setup application servers tier
 
 - name: setup app tier
@@ -34,4 +24,12 @@
     - {name: base-config, tags: base-config}
     - {name: db-tier, tags: [dbs, postgres]}
 
+# Setup front-end load balancer tier
 
+- name: setup load-balancer tier
+  hosts: frontends
+  gather_facts: true
+  become: yes
+  roles:
+    - {name: base-config, tags: base-config}
+    - {name: lb-tier, tags: [lbs, haproxy]}
