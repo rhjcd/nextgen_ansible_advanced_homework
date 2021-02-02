@@ -14,11 +14,6 @@
     meta: "{{ item.meta }}"
     userdata: "{{ item.userdata }}"
   loop: "{{ osp_servers }}"
-  register: result 
-
-- name: Debug result
-  debug:
-    msg: "{{ result }}"
 
 # Below adds FIPs to qa servers
 - name: add ext fip to qa servers
