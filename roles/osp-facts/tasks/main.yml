@@ -2,12 +2,14 @@
 # tasks file for osp-facts
  - name: Fetch Instance Info
    os_server_info:
-    cloud: openstack
-    region_name: regionOne
+     cloud: openstack
+     region_name: regionOne
    register: result
- - name: debug
-   debug:
-     msg: "{{ result }}"
+
+# - name: debug
+#   debug:
+#     msg: "{{ result }}"
+
  - name: Add host
    add_host:
     hostname: "{{ item.name }}"
