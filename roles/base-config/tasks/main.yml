@@ -35,9 +35,9 @@
     state: latest
 
 # Task to fix comms between db and app osp servers
-#- name: Database vm IP add to hosts file for apps servers
-#  lineinfile:
-#    path: /etc/hosts
-#    insertafter: EOF
-#    line: "{{ hostvars['db']['ansible_default_ipv4']['address'] }} appdb1"
-#  when: ansible_nodename == 'app1' or ansible_nodename == 'app2'
+- name: Database vm IP add to hosts file for apps servers
+  lineinfile:
+    path: /etc/hosts
+    insertafter: EOF
+    line: "{{ hostvars['db']['ansible_default_ipv4']['address'] }} appdb1"
+  when: ansible_nodename == 'app1' or ansible_nodename == 'app2'
