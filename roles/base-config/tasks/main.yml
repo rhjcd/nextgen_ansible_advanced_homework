@@ -40,4 +40,4 @@
     path: /etc/hosts
     insertafter: EOF
     line: "{{ hostvars['db']['ansible_default_ipv4']['address'] }} appdb1"
-  when: ansible_nodename == 'app1' or ansible_nodename == 'app2'
+  when: ansible_hostname == 'app1' or ansible_hostname == 'app2'
