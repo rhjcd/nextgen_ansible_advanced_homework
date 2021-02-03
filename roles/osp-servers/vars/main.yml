@@ -1,12 +1,14 @@
 ---
 # Additions to this file toadd keys and nics
-osp_servers:
+op_servers:
   - name: frontend
     state: present
     image: rhel-guest
     key_name: ansible_ssh
     flavor: m1.medium
     security_group: frontend
+    delete_fip: yes
+    wait: no
     nics:
       - net-name: int_network
     meta: "group=frontends,deployment_name=QA"
@@ -15,7 +17,6 @@ osp_servers:
       curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
       cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
       curl -o /home/cloud-user/.ssh/openstack.pem http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pem
-      useradd cloud-user
       chown cloud-user /home/cloud-user/.ssh/openstack.pem
       chmod 0400 /home/cloud-user/.ssh/openstack.pem
 
@@ -25,6 +26,8 @@ osp_servers:
     key_name: ansible_ssh
     flavor: m1.medium
     security_group: apps
+    delete_fip: yes
+    wait: no
     nics:
       - net-name: int_network
     meta: "group=apps,deployment_name=QA"
@@ -33,7 +36,6 @@ osp_servers:
       curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
       cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
       curl -o /home/cloud-user/.ssh/openstack.pem http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pem
-      useradd cloud-user
       chown cloud-user /home/cloud-user/.ssh/openstack.pem
       chmod 0400 /home/cloud-user/.ssh/openstack.pem
 
@@ -43,6 +45,8 @@ osp_servers:
     key_name: ansible_ssh
     flavor: m1.medium
     security_group: apps
+    delete_fip: yes
+    wait: no
     nics:
       - net-name: int_network
     meta: "group=apps,deployment_name=QA"
@@ -51,7 +55,6 @@ osp_servers:
       curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
       cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
       curl -o /home/cloud-user/.ssh/openstack.pem http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pem
-      useradd cloud-user
       chown cloud-user /home/cloud-user/.ssh/openstack.pem
       chmod 0400 /home/cloud-user/.ssh/openstack.pem
 
@@ -61,6 +64,8 @@ osp_servers:
     key_name: ansible_ssh
     flavor: m1.medium
     security_group: db
+    delete_fip: yes
+    wait: no
     nics:
       - net-name: int_network
     meta: "group=appdbs,deployment_name=QA"
@@ -68,7 +73,6 @@ osp_servers:
       #!/bin/bash
       curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
       cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
-      useradd cloud-user
       curl -o /home/cloud-user/.ssh/openstack.pem http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pem
       chown cloud-user /home/cloud-user/.ssh/openstack.pem
       chmod 0400 /home/cloud-user/.ssh/openstack.pem
