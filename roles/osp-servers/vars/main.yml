@@ -1,6 +1,6 @@
 ---
 # Additions to this file toadd keys and nics
-op_servers:
+osp_servers:
   - name: frontend
     state: present
     image: rhel-guest
