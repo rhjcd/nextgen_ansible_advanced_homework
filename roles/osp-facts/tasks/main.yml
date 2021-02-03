@@ -4,11 +4,11 @@
    os_server_info:
      cloud: openstack
      region_name: regionOne
-   register: result
+   register: r_os_servers
 
 # - name: debug
 #   debug:
-#     msg: "{{ result }}"
+#     msg: "{{ r_os_servers }}"
 
  - name: Add host
    add_host:
@@ -17,7 +17,7 @@
     group: "{{ item.metadata.group }}"
     ansible_ssh_private_key_file: ~/.ssh/openstack.pem
     ansible_ssh_user: cloud-user
-   loop: "{{ result['openstack_servers'] }}"
+   loop: "{{ r_os_servers['openstack_servers'] }}"
  - name: Add host
    add_host:
     hostname: "{{ item.name }}"
@@ -25,4 +25,4 @@
     group: "{{ item.metadata.deployment_name }}"
     ansible_ssh_private_key_file: ~/.ssh/openstack.pem
     ansible_ssh_user: cloud-user
-   loop: "{{ result['openstack_servers'] }}"
+   loop: "{{ r_os_servers['openstack_servers'] }}"

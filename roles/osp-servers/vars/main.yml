@@ -15,6 +15,7 @@ osp_servers:
       curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
       cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
       curl -o /home/cloud-user/.ssh/openstack.pem http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pem
+      useradd cloud-user
       chown cloud-user /home/cloud-user/.ssh/openstack.pem
       chmod 0400 /home/cloud-user/.ssh/openstack.pem
 
@@ -32,6 +33,7 @@ osp_servers:
       curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
       cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
       curl -o /home/cloud-user/.ssh/openstack.pem http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pem
+      useradd cloud-user
       chown cloud-user /home/cloud-user/.ssh/openstack.pem
       chmod 0400 /home/cloud-user/.ssh/openstack.pem
 
@@ -49,6 +51,7 @@ osp_servers:
       curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
       cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
       curl -o /home/cloud-user/.ssh/openstack.pem http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pem
+      useradd cloud-user
       chown cloud-user /home/cloud-user/.ssh/openstack.pem
       chmod 0400 /home/cloud-user/.ssh/openstack.pem
 
@@ -65,6 +68,7 @@ osp_servers:
       #!/bin/bash
       curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
       cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
+      useradd cloud-user
       curl -o /home/cloud-user/.ssh/openstack.pem http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pem
       chown cloud-user /home/cloud-user/.ssh/openstack.pem
       chmod 0400 /home/cloud-user/.ssh/openstack.pem
