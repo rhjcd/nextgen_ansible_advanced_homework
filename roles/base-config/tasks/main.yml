@@ -23,10 +23,10 @@
     group: root
     mode: '0644'
 # Let's update the kernel
-- name: Kernel update
-  yum:
-    name: 'kernel*'
-    state: latest
+#- name: Kernel update
+#  yum:
+#    name: 'kernel*'
+#    state: latest
 
 # Install a couple user apps
 - name: install
