@@ -4,7 +4,7 @@
   os_server_info:
     cloud: openstack
     region: regionOne
-  register: result
+  register: r_os_servers
 
 - name: Add host
   add_host:
@@ -12,7 +12,7 @@
     group:
       - "{{ item.metadata.group }}"
       - "{{ item.metadata.deployment_name }}"
-  loop: "{{ result['openstack_servers'] }}"
+  loop: "{{ r_os_servers.openstack_servers }}"
 
 - name: delete floating IP to db instance
   os_floating_ip:
@@ -23,7 +23,7 @@
     network: ext_network
     wait: true
     timeout: 200
-  loop: "{{ result['openstack_servers'] }}"
+  loop: "{{ r_os_servers.openstack_servers }}"
   
 # delete instances with "QA" in name
 - name: Delete instances
@@ -32,4 +32,4 @@
     name: "{{ item['name'] }}"
     state: 'absent'
   when: item.metadata['deployment_name'] == 'QA'
-  loop: "{{ result['openstack_servers'] }}"
+  loop: "{{ r_os_servers.openstack_servers }}"
