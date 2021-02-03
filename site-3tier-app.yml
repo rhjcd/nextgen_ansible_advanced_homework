@@ -34,3 +34,11 @@
   roles:
     - {name: base-config, tags: base-config}
     - {name: lb-tier, tags: [lbs, haproxy]}
+
+# Setup lb hostname for  workstation
+
+- name: setup lb hostname
+  hosts: workstation
+  become: yes
+  roles:
+    - name: workstation-node
