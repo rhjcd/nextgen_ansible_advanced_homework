@@ -28,6 +28,6 @@
   loop: "{{ osp_servers }}"
 
 # Needs a wait
-- name: Wait for online verification at 1 minute
+- name: Verify online @2 mins
   pause:
-    minutes: 1
+    minutes: 2
