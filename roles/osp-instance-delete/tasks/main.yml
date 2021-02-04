@@ -6,6 +6,7 @@
     region_name: regionOne
   register: r_os_servers
 
+# Need to add then delete
 - name: Add host
   add_host:
     name: "{{ item.public_v4 }}"
@@ -14,6 +15,7 @@
       - "{{ item.metadata.deployment_name }}"
   loop: "{{ r_os_servers.openstack_servers }}"
 
+# FIPs need to be deleted first
 - name: delete floating IP to db instance
   os_floating_ip:
     cloud: openstack
