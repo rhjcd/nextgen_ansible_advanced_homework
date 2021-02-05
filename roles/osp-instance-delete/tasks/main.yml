@@ -26,7 +26,7 @@
     wait: true
     timeout: 200
   loop: "{{ r_os_servers.openstack_servers }}"
-  
+
 # delete instances with "QA" in name
 - name: Delete instances
   os_server:

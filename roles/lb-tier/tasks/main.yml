@@ -2,12 +2,12 @@
 - name: Install {{ payload }}
   yum:
     name: "{{ payload }}"
-    state: present 
+    state: present
 
 - name: Enable {{ payload }} at boot
   service:
     name: "{{ payload }}"
-    enabled: true 
+    enabled: true
     state: started
 
 - name: Configure haproxy to load balance app servers

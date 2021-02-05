@@ -26,7 +26,7 @@
     uri:
       url: "http://{{ frontendIP }}/index.html"
       return_content: yes
-    register: results1 
+    register: results1
 
   - name: print content of the page
     debug:
@@ -42,7 +42,7 @@
     uri:
       url: "http://{{ frontendIP }}/index.html"
       return_content: yes
-    register: results2 
+    register: results2
 
   - name: print content of the page
     debug:
