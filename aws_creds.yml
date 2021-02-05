@@ -1,7 +1,6 @@
 ---
 - hosts: tag_AnsibleGroup_bastions
   gather_facts: true
-  remote_user: cloud-user
   become: true
   tasks:
   - name: Install required packages
