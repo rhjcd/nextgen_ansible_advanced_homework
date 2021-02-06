@@ -8,11 +8,11 @@
     replace: 'Defaults  !requiretty'
     backup: yes
 
-# Create repo dir
-#- name: Create yum.repo.d dir
-#  file:
-#    path: /etc/yum.repos.d
-#    state: directory
+ Create repo dir
+- name: Create yum.repo.d dir
+  file:
+    path: /etc/yum.repos.d
+    state: directory
 
 # Now copy over repos from template to host
 - name: Enable repos from template
