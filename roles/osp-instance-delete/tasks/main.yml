@@ -15,7 +15,7 @@
 #      - "{{ item.metadata.deployment_name }}"
 #  loop: "{{ r_os_servers.openstack_servers }}"
 
-# FIPs need to be deleted first
+# Delete FIPs 
 - name: delete floating IP to db instance
   os_floating_ip:
     cloud: openstack
