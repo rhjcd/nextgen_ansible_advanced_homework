@@ -50,8 +50,7 @@
   tasks:
   - name: Access website
     uri:
-      url: "http://frontend1.ab98.example.opentlc.com"
-      #url: "http://frontend1.{{ ANSIBLE_ADVANCE_GUID }}.example.opentlc.com"
+      url: "http://frontend1.{{ ANSIBLE_ADVANCE_GUID }}.example.opentlc.com"
       status_code: 200
       return_content: yes
     register: prod_webpage
@@ -63,5 +62,3 @@
 
   - name: Success
     debug: msg="Congrats Yours HW Assignment is completed"
-
-
